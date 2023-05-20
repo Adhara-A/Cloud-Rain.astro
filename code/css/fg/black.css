@@ -1,0 +1,16 @@
+header{
+    background-color: #333;
+}
+.row .side{
+    background-color:#2c2c2ce5;
+    color:white;
+}
+.row .main .div {
+    background-color:#464550;
+    color:white;
+}.side-net .div{
+    background:#464550;
+}
+#panel,#flip{
+    color:white;
+}

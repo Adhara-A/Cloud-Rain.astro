@@ -1,0 +1,23 @@
+header{
+    background-color: #fff;
+    color:#000
+}
+.row .side{
+    background-color:#ffffffe5;
+    color:black;
+}
+.row .side a,.row .side a::before{
+    color:black;
+}
+.row .side a:hover{
+    background-color:#d9d8df;
+}
+.row .main .div {
+    background-color:#d9d8df;
+    color:#000;
+}.side-net .div{
+    background:#e2e2e2;
+}
+#panel,#flip{
+    color:rgb(0, 0, 0);
+}
