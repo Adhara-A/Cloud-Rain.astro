@@ -58,11 +58,11 @@ function checkCookie(){
 	if (user!=""){
     if (user == "white"){
       document.getElementById("fgcolor").innerHTML=`
-      <link rel="stylesheet" href="/code/css/fg/white.css">`;
+      <link rel="stylesheet" href="https://adhara-a.github.io/CloudRain.astro.workgroup/code/css/fg/white.css">`;
       k = 2
     }else{
       document.getElementById("fgcolor").innerHTML=`
-      <link rel="stylesheet" href="/code/css/fg/black.css">`;
+      <link rel="stylesheet" href="https://adhara-a.github.io/CloudRain.astro.workgroup/code/css/fg/black.css">`;
     }
 	}
 	else {
