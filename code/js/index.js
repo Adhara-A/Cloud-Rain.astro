@@ -1,4 +1,4 @@
-console.log(`%c
+﻿console.log(`%c
 ____________________________________________________________%c
      _________     _________       __         ___      _________
     /   _____/|   /   ____  ＼    /  /|  __  /  /|    /   ______/|
@@ -35,7 +35,7 @@ function wo(){
   switch (k) {
     case 1:
       document.getElementById("fgcolor").innerHTML=`
-      <link rel="stylesheet" href="/code/css/fg/white.css">`;
+      <link rel="stylesheet" href="https://adhara-a.github.io/CloudRain.astro.workgroup/code/css/fg/white.css">`;
       document.getElementById("bj").innerHTML=`点击切换为黑色`;
       setCookie("fg","white",5);
       k = k + 1;
@@ -43,7 +43,7 @@ function wo(){
 
     case 2:
       document.getElementById("fgcolor").innerHTML=`
-      <link rel="stylesheet" href="/code/css/fg/black.css">`;
+      <link rel="stylesheet" href="https://adhara-a.github.io/CloudRain.astro.workgroup/code/css/fg/black.css">`;
       document.getElementById("bj").innerHTML=`点击切换为白色`;
       setCookie("fg","black",5);
       k = k - 1;
