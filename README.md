@@ -1,4 +1,4 @@
-# CloudRain.astro.workgroup
+# Cloud Rain astronomy work group
 <h3>Declaration and Introduction</h3>
 
 <hr>
