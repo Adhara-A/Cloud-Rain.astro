@@ -160,7 +160,7 @@
                             }
                             btntime.addEventListener("mousedown",function(){
                                 this.onmousemove = function(){
-                                    video.currentTime = this.value*video.duration/100;
+                                    video.currentTime = this.value*video.duration%100;
                                 }
                                 this.onmouseup = function(){
                                     this.onmousemove = null;
