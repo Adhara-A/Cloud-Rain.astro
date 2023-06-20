@@ -1,14 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
     <head>
+        <title>云雨天文台</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CRWG官方网站</title>
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="CRWG, Cloud-Rain astronomy workgroup">
+        <meta name="description" content="CRWG(Cloud-Rain astronomy WorkGroup)的主要官网">
+        <meta name="author" content="Adhara-A">
+        <link rel="Shortcyt Icon" href="picture/icon/cr.jpg">
         <link rel="stylesheet" href="code/css/index-html.css">
         <link rel="stylesheet" href="code/css/font.css">
+        <script src="index.js"></script>
         <script src="code/js/fun.js"></script>
-        <script src="code/js/index.js"></script>
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
@@ -19,13 +22,26 @@
         </script>
     </head>
     <body id="image" onload="checkCookie()">
+        <div id="fgcolor">
+            <link rel="stylesheet" href="code/css/fg/black.css">
+        </div>
         <header class="header">
             <span style="display:inline-block">
                 <h2 id="h" onclick="fun()">CRWG官方网站</h2>
             </span>
+            <span style="cursor:pointer" class="mysxlxys mysxl" onclick="openNav()">
+                &#9776; 
+            </span>
+            <div class="search-box">
+                <div id="data" style="float:right">
+                    <input type="text" name="" id="text" placeholder="搜索内容...">
+                    <button class="label" onclick="search()">搜索</button>
+                </div>
+            </div>
         </header>
         <div class="row">
-            <div class="side xys">
+            <div class="side xys" id="mySidenav">
+                <a href="javascript:void(0)" onclick="closeNav()" class="mysxlxys">&times;</a>
                 <h2 style="text-align:center">网站目录</h2>
                 <div class="left-web-tables">
                     <a href="index.html">
@@ -64,27 +80,137 @@
                 </div>
             </div>
             <div class="main">
+                <noscript>
+                    <div class="div">
+                        <span style="color:red">您的浏览器未开启JavaScript，请开启或更换浏览器。</span>
+                    </div>
+                    <br>
+                </noscript>
                 <div class="div">
                     <h2>组织介绍</h2>
-                    <p style="font-size:18px">这里是一个集结天文爱好者的组织。</p>
-                    <p style="font-size:18px">此网站是由bilibili（哔哩哔哩）的Adhara-弧矢七研发的静态网站。</p>
-                    <del style="font-size:18px;color:#aaa">（虽然静态网页有时没什么用）</del>
-                    <p style="font-size:18px">目前此组织仅在bilibili招收成员。</p>
-                    <p id="sumtime"></p>
-                    <p>联系
-                        <a href="//space.bilibili.com/3493287956581046" style="color:#4fa7ff" target="_blank">
-                            网站开发者
+                    <p>此网站是云雨天文台(Cloud-Rain astronomy Work Group)专用网站，</p>
+                    <p>一个集结天文爱好者的组织。</p>
+                    <p>如果需要留言，请通过如下表单发送邮件至作者，</p>
+                    <p>或发送内容到
+                        <a style="color:#9cf" href="https://space.bilibili.com/3494362621152145">
+                            作者的B站
                         </a>
-                        授权加入。
+                        。
                     </p>
+                    <p>使用此网站前，请先阅读
+                        <a href="crwg-myfile/TL.html" style="color:#9cf">《隐私政策》</a>
+                        。
+                    </p>
+                    <div class="form">
+                        <form action="action_page.php">
+                            <p>昵称：<input name="crwgusername" autocomplete="off" placeholder="请输入..."></p>
+                            <p>内容：<br><textarea cols="23" rows="5"></textarea></p>
+                            <button class="reply">提交</button>
+                        </form>
+                    </div>
                 </div>
                 <br>
                 <div class="div">
                     <h2>我们的视频</h2>
                     <p>只是水一下内容</p>
-                    <video poster="picture/vi/file-post95-27.jpg" controls="" name="media" style="width:100%;height:100%;"> 
-                        <source src="video/post95-26.mp4" type="video/mp4">
-                    </video>
+                    <del>里面包含了此网站专属的新版HTML5播放器</del>
+                    <div class="video">
+                        <div class="mp4par">
+                            <video id="mp4" poster="picture/vi/file-post95-27.jpg" src="video/post95-26-X.mp4" style="width:100%;height:100%;">
+                                <p>您的浏览器暂不支持此类播放器</p>
+                            </video>
+                            <div id="controls">
+                                <input type="range" id="btntime" value="0" max="100">
+                                <br>
+                                <span id="current_time">00:00</span>
+                                <span>/</span>
+                                <span id="totaltime">00:00</span>
+                                <button id="btnstart">播放</button>
+                                <button id="btnmute">静音</button>
+                                <button id="btnbig">全屏</button>
+                                <button onclick="remove()">重新播放</button>
+                                <span>音量：<input type="range" id="btnsound" value="30" max="100"></span>
+                            </div>
+                        </div>
+                        <script>
+                            var video = document.getElementById("mp4");
+                            var btnstart = document.getElementById("btnstart");
+                            var current_time = document.getElementById("current_time");
+                            var btntime = document.getElementById("btntime");
+                            var btnmute = document.getElementById("btnmute");
+                            var btnsound = document.getElementById("btnsound")
+                            var btnbig = document.getElementById("btnbig");
+                            var totaltime = document.getElementById("totaltime");
+                            var width = video.offsetWidth;
+                            video.onplaying = function(){
+                                var alltimes = video.duration;
+                                var m = Math.floor(alltimes%3600/60);
+                                var s = Math.floor(alltimes%60);
+                                m=m>=10?m:'0'+m;
+                                s=s>=10?s:'0'+s;totaltime.innerHTML= m +':' + s;
+                            }
+                            video.ontimeupdate = function(){
+                                btntime.value = 100* this.currentTime/this.duration;
+                                var time = this.currentTime;
+                                var m = Math.floor(time%3600/60);
+                                var s = Math.floor(time%60);
+                                m=m>=10?m:'0'+m;
+                                s=s>=10?s:'0'+s;
+                                current_time.innerHTML = m + ':' + s;
+                            }
+                            btntime.addEventListener("mousedown",function(){
+                                this.onmousemove = function(){
+                                    video.currentTime = this.value*video.duration/100;
+                                }
+                                this.onmouseup = function(){
+                                    this.onmousemove = null;
+                                    this.onmouseup = null
+                                }
+                            });
+                            btnstart.addEventListener("click",function(){
+                                if (this.innerHTML == "播放") {
+                                    video.play();
+                                    this.innerHTML = "暂停";
+                                }else{
+                                    video.pause();
+                                    this.innerHTML = "播放"
+                                }
+                            });
+                            btnmute.addEventListener("click",function(){
+                                video.muted = video.muted;
+                            });
+                            btnsound.addEventListener("mousedown",function(){
+                                this.onmousemove=function(){
+                                    video.volume = this.value/100;
+                                }
+                                this.onmouseup = function(){
+                                    this.onmousemove = null;
+                                    this.onmouseup = null;
+                                }
+                            });
+                            btnbig.addEventListener("click",function(){
+                                if (video.webkitRequestFullScreen){
+                                    video.webkitRequestFullScreen();
+                                }else if (video.mozRequestFullScreen){
+                                    video.mozRequestFullScreen();
+                                }else if (video.msRequestFullScreen){
+                                    video.msRequestFullScreen();
+                                }else if (video.RequestFullScreen){
+                                    video.RequestFullScreen();
+                                }
+                            });
+                            function remove(){
+                                video.pause();
+                                video.currentTime = 0;
+                                btntime.value = 0;
+                                btnsound = 30;
+                                var dehjdghjd = setInterval(()=>{
+                                    video.play();
+                                    clearInterval(dehjdghjd)
+                                },1000)
+                            }
+                        </script>
+                    </div>
                 </div>
                 <br>
                 <div class="div">
@@ -98,11 +224,6 @@
                             <a target="_blank" href="http://user.astro.wisc.edu/~townsend/static.php?ref=mesa-web">MESAweb</a>
                             <a style="float:right" target="_blank" href="http://www.vendian.org/mncharity/dir3/blackbody/UnstableURLs/bbr_color.html">恒星颜色图</a>
                         </div>
-                        <h3>视频软件</h3>
-                        <div class="web-tables">
-                            <a target="_blank" href="https://www.bilibili.com">哔哩哔哩</a>
-                            <a target="_blank" href="https://www.douyin.com">抖音</a>
-                        </div>
                         <h3>网页制作与部署</h3>
                         <div class="web-tables">
                             <a target="_blank" href="https://www.runoob.com">菜鸟教程</a>
@@ -112,6 +233,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
             </div>
             <div class="side-net xys2">
                 <div class="div">
@@ -119,24 +241,75 @@
                     <hr style="size:1px;margin:0;">
                     <div id="panel" style="display:none;">
                         <a onclick="wo()" id="bj" class="col light">切换颜色</a>
+                        <hr>
+                        <a onclick="dates()" id="times">显示时间</a>
+                        <p id="date" style="font-size:15px;"></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="fgcolor">
-            <link rel="stylesheet" href="code/css/fg/black.css">
-        </div>
-        <div class="mac">
-            <p>为了适应屏幕大小，移动端页面有所简化。使用电脑桌面端以获得更好的浏览体验。</p>
+        <div class="mac" style="display:none;">
+            <p style="color:#000;">为了适应屏幕大小，移动端页面有所简化。使用电脑桌面端以获得更好的浏览体验。</p>
         </div>
         <script type="text/javascript">
-            var time = 5
+            const sidenav = document.getElementById("mySidenav")
+            function openNav() {
+                sidenav.style.display = 'block';
+            };
+            function closeNav() {
+                sidenav.style.display = 'none';
+            };
+        </script>
+        <script type="text/javascript">
+            const dream1v5 = document.getElementById("date")
+            const times = document.getElementById("times")
+            function dates(){
+                var c = 10;
+                dream1v5.style.display = 'block';
+                dream1v5.innerHTML = '加载中...'
+                var timer = setInterval(() =>{
+                    var date = new Date()
+                    var year = date.getFullYear();
+                    var month = date.getMonth() + 1;
+                    var day = date.getDate();
+                    var hour = date.getHours();
+                    var min = date.getMinutes();
+                    var sec = date.getSeconds();
+
+                    if(hour < 10){
+                        hour = '0'+hour
+                    }
+                    if (sec < 10){
+                        sec = '0'+ sec;
+                    }
+                    if (min < 10){
+                        min = '0'+ min;
+                    }
+
+                    dream1v5.innerHTML=
+                    year + '年' + month + '月'+ day + '日' + '<br>'
+                     + hour +':'+ min +':'+ sec;
+                        
+                    if (c == 0){
+                        clearInterval(timer);
+                        dream1v5.style.display = 'none';
+                        times.innerHTML='显示时间';
+                    }else{
+                        c--;
+                    }
+                },1000);
+                times.innerHTML='隐藏时间';
+                        
+            }
+        </script>
+        <script type="text/javascript">
+            var s = 10
             const mac = document.querySelector(".mac")
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                 mac.style.display = 'block';
                 setInterval(() => {
-                    time--;
-                    if (time == 0) {
+                    s--;
+                    if (s == 0) {
                         mac.style.display = 'none';
                     }
                 }, 1000);
