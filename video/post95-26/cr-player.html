@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            html,body{
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                display:flex;
+                align-items: center;
+            }
+            .video{
+                margin:0 auto;
+                max-height:1400px;
+                
+            }
+            [type=range]{
+                padding:0;
+                margin:10px 0;
+            }
+            #btntime{
+                width:100%;
+                height:7px;
+            }.video button{
+                border:none;
+                background-color:#00aeec;
+                padding:5px;
+                color:white;
+                border-radius:5px;
+                box-shadow:0px 0px 3px 2px rgba(0,0,0,0.3);
+            }video::-webkit-media-controls{
+                display:none !important; 
+            }video::-ms-media-controls{
+                display:none !important; 
+            }
+            #controls{
+                background-color:#d4d4d4;
+                padding:5px 20px;
+                border-radius:0 0 8px 8px;
+            }#mp4{
+                display:flex;
+                width:100%;
+                height:100%;
+                max-height:900px;
+                border-radius:8px 8px 0 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="video">
+            <div class="mp4par">
+                <video id="mp4" poster="file-post95-27.jpg" src="post95-26-X.mp4" style="width:100%;height:100%;">
+                    <p>您的浏览器暂不支持此类播放器</p>
+                </video>
+                <div id="controls">
+                    <input type="range" id="btntime" value="0" max="100">
+                    <br>
+                    <span id="current_time">00:00</span>
+                    <span>/</span>
+                    <span id="totaltime">00:00</span>
+                    <button id="btnstart">播放</button>
+                    <button id="btnmute">静音</button>
+                    <button id="btnbig">全屏</button>
+                    <button onclick="remove()">重新播放</button>
+                    <span>音量：<input type="range" id="btnsound" value="30" max="100"></span>
+                </div>
+            </div>
+            <script src="player.js"></script>
+        </div>
+    </body>
+</html>
