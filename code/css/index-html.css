@@ -263,9 +263,13 @@ input[type=text] {
     height:50px;
     border:none;
     border-radius:0 8px 8px 0
-}input[name=crwgusername],textarea{
+}input[name=crwgusername],input[name=Email],textarea{
     border-radius:5px;
     outline:none;
+}input[name=name],input[name=yzm],textarea{
+    border-radius:5px;
+    outline:none;
+    margin:5px 0;
 }
 textarea{
     padding:10px;
@@ -281,20 +285,16 @@ textarea{
     border:none;
     box-shadow:1px 1px 4px 5px #b8c9ff;
     background-color:#a8b9ff;
-}[type=range]{
-    padding:0;
-    margin:10px 0;
 }
-#btntime{
+.video{
     width:100%;
-    height:7px;
-}.video button{
-    border:none;
-    background-color:#00aeec;
-    padding:5px;
-    color:white;
-    border-radius:5px;
-    box-shadow:0px 0px 3px 2px rgba(0,0,0,0.3);
+}
+@media screen and (min-width:800px){
+    .video{height:570px;}
+}@media screen and (max-width:800px){
+    .video{height:470px;}
+}@media screen and (max-width:500px){
+    .video{height:400px;}
 }
 .mac{
     position:fixed;

@@ -1,0 +1,42 @@
+.btn {
+    padding: 10px;
+    width:170px;
+    transition: all 0.2s;
+    border-radius: 17px;
+    font-size:17px;
+    color: #000;
+    text-align:center;
+    margin:10px;
+    border: 1px solid #fd9;
+    background: #fd9;
+    box-shadow:1px 1px 5px 3px inset #b96,
+    2px 2px 5px 3px inset #fea,
+    1px 1px 9px 5px #ca7;
+}
+.btn1 {
+    padding: 10px;
+    width:170px;
+    transition: all 0.2s;
+    border-radius: 17px;
+    margin:5px 0 0 0; 
+    font-size:17px;
+    color: #fff;
+    text-align:center;
+    background: #9cc;
+    box-shadow:1px 1px 5px 3px inset #699,
+    2px 2px 5px 3px inset #aee,
+    1px 1px 9px 5px #7aa;
+}
+.btn:hover ,.btn1:hover{
+    width:300px;
+    background: #9bf;
+    border-radius:25px;
+    border: 1px solid #000;
+    box-shadow:1px 1px 5px 3px inset #689,
+    2px 2px 5px 3px inset #aaf,
+    1px 1px 12px 7px #79f;
+}.login{
+    padding:10px;
+}.login input{
+   margin:5px;
+}
