@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>浏览器版本过低</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Adhara-A">
+        <link rel="Shortcut Icon" href="favicon.ico">
+        <style type="text/css">
+            *{
+                box-sizing:border-box;
+            }
+            a{
+                text-decoration:none;
+            }
+            body{
+                background-color:#b8c9ff;
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }.layout{
+                width: 70%;
+                max-width: 800px;
+                height:80vh;
+                background:rgba(241, 241, 241,0.5);
+                color:black;
+                text-align:center;
+                text-shadow:4px 4px 2px #fff;
+                padding:20px 35px;
+                border-radius:35px;
+                box-shadow:
+                    inset 10px 10px 15px rgba(0,0,0,0.2),
+                    25px 10px rgba(0,0,0,0.1),
+                    15px 20px 20px rgba(0,0,0,0.05),
+                    inset -10px -10px 15px rgba(255,255,255,0.9);
+            }
+            ul {
+                display: flex;
+                justify-content: center;
+            }
+            li {
+                margin:5px;
+                list-style: none;
+            }
+
+            .layout{
+                overflow-y:scroll;
+            }
+
+            .layout::-webkit-scrollbar {
+                display: none;
+            }
+
+            .browser-item {
+                height: 114px;
+                background:transparent;
+                border-radius: 8px;
+                width: 88px;
+                margin-right: 8px;
+                padding: 20px 0;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                transition:all 0.3s;
+                box-shadow:
+                    inset 10px 10px 15px rgba(0,0,0,0.2),
+                    3px 3px rgba(0,0,0,0.1),
+                    5px 10px 10px rgba(0,0,0,0.05),
+                    inset -10px -10px 15px rgba(255, 255, 255, 0.9);
+            }
+            .browser-item:hover {
+                background: #E3E5E7;
+            }
+            .browser-item .iconfont {
+                margin-bottom: 8px;
+                display: inline-block;
+            }
+            .browser-name {
+                color: #667 !important;
+                font-weight: bold;
+            }
+            
+            @font-face {
+                font-family: "iconfont";
+                src: url('//at.alicdn.com/t/font_1454899_pqhvobved2o.eot?t=1570865680252'); /* IE9 */
+                src: url('//at.alicdn.com/t/font_1454899_pqhvobved2o.eot?t=1570865680252#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                url('//at.alicdn.com/t/font_1454899_pqhvobved2o.woff?t=1570865680252') format('woff'),
+                url('//at.alicdn.com/t/font_1454899_pqhvobved2o.svg?t=1570865680252#iconfont') format('svg'); /* iOS 4.1- */
+            }
+
+            .font {
+                font-family: "iconfont" !important;
+                color:#667 !important;
+                font-size: 30px;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .icon-fox:before {
+                content: "\e695";
+            }
+
+            .icon-chrome:before {
+                content: "\e600";
+            }
+
+            .icon-edge:before {
+                content: "\e69a";
+            }
+
+            .title-names{
+                color:#667 !important;
+                font-size:14px;
+            }
+            @media screen and (max-width:700px){
+                ul{
+                    flex-wrap:wrap;
+                    padding:0;
+                }.browser-item {
+                    width:100%;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="layout">
+            <h1>您的浏览器内核过旧</h1>
+            <p>您正在使用已经被淘汰的浏览器内核。</p>
+            <p>我们的网站无法兼容您的浏览器。</p>
+            <hr>
+            <h3>我该怎么办？</h3>
+            <p>请将浏览器更新到最新的版本，或者使用其他浏览器。</p>
+            <hr>
+            <h3>为什么要保持最新浏览器？</h3>
+            <p>现在，浏览器的功能越来越多，比如现在都可以用浏览器给手机刷机了，<br>
+            然而这些功能都是需要新版浏览器内核才能使用的。</p>
+            <p>旧版内核可能会有安全漏洞，新版内核往往会修复这些漏洞。<br>保持最新内核可以让您上网时更加安全。</p>
+            
+            <hr>
+            <h3>比较先进的浏览器</h3>
+            <div class="list">
+                <ul>
+                    <li class="browser-item">
+                        <a href="https://www.google.cn/intl/zh-CN/chrome" target="_blank">
+                        <i class="font icon-chrome"></i>
+                        <br>
+                        <span class="title-names">谷歌</span>
+                        <br>
+                        <span class="browser-name">Chrome</span>
+                        </a>
+                    </li>
+                    <li class="browser-item">
+                        <a href="https://www.mozilla.org/zh-CN/firefox/new" target="_blank">
+                        <i class="font icon-fox"></i>
+                        <br>
+                        <span class="title-names">火狐浏览器</span>
+                        <br>
+                        <span class="browser-name">Firefox</span>
+                        </a>
+                    </li>
+                    <li class="browser-item">
+                        <a href="https://www.microsoftedgeinsider.com" target="_blank">
+                        <i class="font icon-edge"></i>
+                        <br>
+                        <span class="title-names">微软</span>
+                        <br>
+                        <span class="browser-name">Edge</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

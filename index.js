@@ -53,6 +53,10 @@ function wo(){
       break;
     }
 }
+function displayVideo(){
+  const iframe = document.querySelector("iframe");
+  iframe.height=ifd.document.body.scrollHeight;
+}
 function start(){
   const cr_user = document.getElementById("cr-username");
   const btn = document.querySelector(".btn");
@@ -72,6 +76,7 @@ function start(){
     }
     if (verify_time < 0){
       clearInterval(verify_timer);
+      btn1.innerHTML = "重新发送";
       btn1.disabled=false;
     }
   },1000);
@@ -82,8 +87,12 @@ function start(){
       if (cr_user.value == "" || cr_user.value == null){
         cr_user.value = "CR_" + Math.trunc(Math.random()*90000+10000);
       };
-      setCookie("cr-users",cr_user.value,365);
-      location.reload()
+      if (cr_user.value.length >= 16){
+        alert("名称过长")
+      }else{
+        setCookie("cr-users",cr_user.value,365);
+        location.reload()
+      }
     }
   });
 }
