@@ -35,8 +35,8 @@
     box-shadow:1px 1px 5px 3px inset #689,
     2px 2px 5px 3px inset #aaf,
     1px 1px 12px 7px #79f;
-}.login{
+}.login-box{
     padding:10px;
-}.login input{
+}.login-box input{
    margin:5px;
 }

@@ -289,13 +289,6 @@ textarea{
 .video{
     width:100%;
 }
-@media screen and (min-width:800px){
-    .video{height:570px;}
-}@media screen and (max-width:800px){
-    .video{height:470px;}
-}@media screen and (max-width:500px){
-    .video{height:400px;}
-}
 .mac{
     position:fixed;
     bottom:5%;
