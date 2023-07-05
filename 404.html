@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Adhara-A">
+        <link rel="code/css/font.css">
+        <title>404 Not Found</title>
+        <style type="text/css">
+            body{
+                margin:0;
+                background-color:#000;
+            }#back{
+                width:300px;
+                border:none;
+                background: #00bffd;
+                box-shadow: 0 10px 20px 0 rgba(0, 174, 236, 0.7);
+                border-radius: 20px;
+                font-size: 16px;
+                font-weight: 400;
+                color: #ffffff;
+                line-height: 40px;
+                transition:all 0.3s;
+            }#back:hover{
+                background: #41d0ff;
+                box-shadow: 0 10px 20px 10px #31c0ffb3;
+            }.layout{
+                text-align:center;
+                width:80%;
+                height:100%;
+                position:relative;
+                top:80px;
+                margin:0 10%;
+            }.layout::-webkit-scrollbar {
+                display: none;
+            }.star{
+                background-color:rgba(184, 201, 255, 0.8);
+                box-shadow:0px 0px 30px 10px #b8c9ff;
+                width:70px;
+                min-width:70px;
+                height:70px;
+                border-radius:50%;
+                padding:20px;
+            }.face{
+                width:90%;
+                height:90%;
+                position:relative;
+                top:30%;
+                left:20%;
+            }.error-box{
+                padding:20px 0;
+                border-radius:20px 20px 0 0;
+                background-color:#f1f1f1;
+                display:flex;
+                justify-content: center;
+            }.text{
+                padding:0 20px;
+                border-left:1px solid #ccc;
+            }.star-box{
+                display:flex;
+                align-items:center;
+                margin-right:70px;
+            }.bottom{
+                padding:20px 0;
+                border-radius:0 0 20px 20px;
+                background-color:#ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="error-box">
+                <div class="star-box">
+                    <div class="star">
+                        <img class="face" src="./picture/face/face1.png">
+                    </div>
+                </div>
+                <div class="text">
+                    <h1>404 Not Found</h1>
+                    <p>我们没有找到你请求的页面。</p>
+                    <p>如果您是手动输入的 URL ，请检查拼写并重试。</p>
+                    <button id="back">返回首页</button>
+                </div>
+            </div>
+            <div class="bottom">
+                <p>如果您认为这是一个服务器错误，请及时联系我们。</p>
+                <hr>
+            </div>
+        </div>
+        <script type="text/javascript">
+            const gohome = document.getElementById("back");
+            gohome.addEventListener("click",function(){
+                window.location.href = "index.html";
+            })
+        </script>
+    </body>
+</html>
