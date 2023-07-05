@@ -14,9 +14,10 @@
         <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript">
             if (window.ActiveXObject || "ActiveXObject" in window){
-                console.log("ie");
+                console.log("01101110 01101111");
                 window.location.href = "error.html";
-            }else{
+            }
+            else{
                 console.log("兼容的浏览器版本")
             };
             $(document).ready(function(){
@@ -72,7 +73,7 @@
                             </svg>
                             <span>首页</span>
                         </a>
-                        <a href="crwg-myfile/TL.html">
+                        <a href="directory/TL.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" 
                             viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" 
                             fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -82,7 +83,7 @@
                             </svg>
                             <span>条例</span>
                         </a>
-                        <a href="crwg-myfile/cs.html">
+                        <a href="directory/cs.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                 <polyline points="7 10 12 15 17 10"></polyline>
@@ -93,13 +94,13 @@
                     </div>
                     <hr>
                     <div class="fakeimg">
-                        <a href="mulu-files/stellar.html">恒星篇</a>
-                        <a href="mulu-files/galaxy.html">星系篇</a>
-                        <a href="mulu-files/planet.html">行星篇</a>
+                        <a href="directory/stellar.html">恒星篇</a>
+                        <a href="directory/galaxy.html">星系篇</a>
+                        <a href="directory/planet.html">行星篇</a>
                     </div>
                     <hr>
                     <div class="fakeimg">
-                        <a href="mulu-files/stars.html">天体计算</a>
+                        <a href="directory/stars.html">天体计算</a>
                     </div>
                     <div id="gns" style="padding:10px;text-align:center"></div>
                 </div>
@@ -114,12 +115,7 @@
                         <h2>组织介绍</h2>
                         <p>此网站是云雨天文台(Cloud-Rain astronomy Work Group/ <br> CRWG) 专用网站，</p>
                         <p>一个集结天文爱好者的组织。</p>
-                        <p>如果有什么建议，可以通过如下表单发送邮件至作者，</p>
-                        <p>或发送内容到
-                            <a style="color:#9cf" href="https://space.bilibili.com/3494362621152145">
-                                作者的B站
-                            </a>
-                            。
+                        <p>如果有什么建议，可以通过如下表单发送邮件至作者。</p>
                         </p>
                         <div class="form">
                             <form action="https://formspree.io/f/mzblpzek" method="post" name="_replyto">
@@ -131,13 +127,13 @@
                         </div>
                     </div>
                     <br>
-                    <div class="div">
+                    <div class="div" id="2">
                         <h2>我们的视频</h2>
                         <p>只是水一下内容</p>
                         <iframe class="video" name="ifd" onload="displayVideo()" src="video/post95-26/cr-player.html" scrolling="no" frameborder="0"></iframe>
                     </div>
                     <br>
-                    <div class="div">
+                    <div class="div" id="3">
                         <h2>实用网站列表</h2>
                         <div style="padding:10px 20px;background-color:rgba(255, 255, 255, 0.2);border-radius:5px;">
                             <h3>恒星演化专用</h3>
@@ -157,7 +153,6 @@
                             </div>
                         </div>
                     </div>
-                    <br>
                 </div>
                 <div class="side-net xys2">
                     <div class="div">
