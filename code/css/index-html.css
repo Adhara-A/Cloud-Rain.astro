@@ -59,7 +59,7 @@ header h2{
     top:70px;
     position:fixed;
     height:100%;
-    transition: display 5s;
+    transition:0.3s;
 }
 .side-net{
     padding: 20px;
@@ -144,7 +144,7 @@ header h2{
 @media screen and (max-width: 1100px){
     .xys{
         display:none;
-        width:50%;
+        width:0;
         z-index:114;
     }
     .mysxlxys{
@@ -166,6 +166,11 @@ header h2{
 @media screen and (max-width: 1100px) and (min-width:800px){
     .main{
         padding:90px 31% 20px 20px;
+    }
+}
+@media screen and (max-width: 800px) and (min-width:550px){
+    .main{
+        padding:90px 20px 20px 20px;
     }
 }
 
