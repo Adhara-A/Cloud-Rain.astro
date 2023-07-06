@@ -4,7 +4,6 @@
         <title>云雨天文台</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="|A|  啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊">
         <meta name="author" content="Adhara-A">
         <link rel="Shortcut Icon" href="favicon.ico">
         <link rel="stylesheet" href="code/css/index-html.css">
@@ -177,7 +176,10 @@
                 const sidenav = document.getElementById("mySidenav");
                 const gns = document.getElementById("gns");
                 function openNav() {
-                    sidenav.style.display = 'block';
+                    sidenav.style.display = "block";
+                    setTimeout(`
+                    sidenav.style.width = "60%";
+                    `,50);
                     const width = $(window).width();
                     if (width <= 784){
                         gns.innerHTML = `<hr>
@@ -187,8 +189,11 @@
                     }
                 };
                 function closeNav() {
-                    sidenav.style.display = 'none';
+                    sidenav.style.width = "0";
+                    setTimeout(`
+                    sidenav.style.display = "none";
                     gns.innerHTML = '';
+                    `,200)
                 };
             </script>
             <script type="text/javascript">
