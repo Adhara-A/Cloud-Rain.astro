@@ -290,6 +290,11 @@ textarea{
     border:none;
     box-shadow:1px 1px 4px 5px #b8c9ff;
     background-color:#a8b9ff;
+}#error{
+    color:red;
+    font-size:15px;
+    font-weight:600;
+    display:none;
 }
 .video{
     width:100%;
